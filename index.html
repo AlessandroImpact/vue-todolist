@@ -6,9 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Alessandro Terracciano">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Too Do Vue</title>
 </head>
 <body>
+
+    
+    <div class="container" id="app">
+          
+        <header>
+            <img class="logo" src="https://www.leoniblog.it/wp-content/uploads/2019/02/freedom-1.jpg" alt="logo">
+        </header>
+
+
+        <main>
+
+            <h3>ROAD TO FREEDOM</h3>
+
+            <div class="add-in-list">
+                <input type="text" placeholder="Inserisci un nuovo passaggio" v-on:keyup.enter="addTodo" type="text" v-model="newtodo">
+                <button @click="addTodo">Aggiungi</button>
+            </div>
+
+            <div class="todo-list">
+                <ul v-if="todos.length > 0">
+                    <!--  classe done per segnare gli elementi-->
+                    <li v-for="(element, indice) in todos" :class="{'done': element.done}"><span>{{element.text}}</span><i @click="removeTodo(indice)" class="fa-solid fa-xmark"></i></li>
+                </ul>
+                <!-- se elimino tutti gli elementi esce v-else -->
+                <div v-else>
+                    Complimenti! Sei il numero 1
+                </div>
+
+            </div>
+
+        </main>
+
+        
+
+        
+
+    </div>
 
 
 
